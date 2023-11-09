@@ -1,3 +1,5 @@
+# vim:set ft=i3config:
+
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -233,7 +235,7 @@ bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.local/share/i3lock/launch.sh, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym s exec --no-startup-id ~/.local/share/i3lock/launch.sh && systemctl suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -245,7 +247,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym XF86PowerOff exec --no-startup-id i3exit suspend
+bindsym XF86PowerOff exec --no-startup-id ~/.local/share/i3lock/launch.sh && systemctl suspend
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
